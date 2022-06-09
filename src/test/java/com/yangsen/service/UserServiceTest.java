@@ -38,5 +38,8 @@ public class UserServiceTest {
 
         userService.setUserDao((UserDao) context.getBean("UserDaoImplOfMysql"));
         userService.getUser();
+
+        userService = (UserService) context.getBean("UserServiceImpl2");
+        userService.getUser();
     }
 }

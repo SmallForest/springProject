@@ -16,4 +16,9 @@
         <!--name是属性名，ref表示引用xml注册的类的ID，比如上面的UserDaoImpl        -->
         <property name="userDao" ref="UserDaoImpl"/>
     </bean>
+
+    <!--使用构造器传参-->
+    <bean id="UserServiceImpl2" class="com.yangsen.service.UserServiceImpl">
+        <constructor-arg ref="UserDaoImpl"/>
+    </bean>
 </beans>

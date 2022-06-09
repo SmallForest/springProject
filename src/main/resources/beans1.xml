@@ -3,5 +3,61 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <!--创建学生类的bean id首字母要小写，不然编辑器提示-->
+    <bean id="student" class="com.yangsen.pojo.Student">
+        <!--最简单的注入 普通值注入-->
+        <property name="name" value="李三"/>
+        <!-- Bean注入 复杂类使用ref        -->
+        <property name="address" ref="address"/>
+        <!-- 数组注入-->
+        <property name="books">
+            <array>
+                <value>近代史刚要</value>
+                <value>中国古代史</value>
+                <value>信息技术</value>
+                <value>高数（一）</value>
+            </array>
+        </property>
+        <!--list注入-->
+        <property name="hobby">
+            <list>
+                <value>唱歌</value>
+                <value>蹦迪</value>
+                <value>开摩托</value>
+            </list>
+        </property>
+        <!--map注入-->
+        <property name="card">
+            <map>
+                <entry key="学号" value="123455"/>
+                <entry key="饭卡号" value="8898999"/>
+            </map>
+        </property>
+        <!--set注入-->
+        <property name="games">
+            <set>
+                <value>LOL</value>
+                <value>CF</value>
+                <value>剑灵</value>
+                <value>原神</value>
+            </set>
+        </property>
+        <!--设置空值-->
+        <property name="wife">
+            <null/>
+        </property>
+        <!--Properties注入-->
+        <property name="info">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="jdbc.url">jdbc:mysql://127.0.0.1:3306/mybatis?useSSL=false&amp;serverTimezone=UTC</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
+    <!--    创建address的bean-->
+    <bean id="address" class="com.yangsen.pojo.Address">
+        <property name="address" value="济南市"/>
+    </bean>
 </beans>

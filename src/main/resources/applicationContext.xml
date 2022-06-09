@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--import-->
+    <import resource="beans1.xml"/>
 
     <!--一个类的实例化tag spring依靠这个tag实例化对象-->
     <bean id="hello" class="com.yangsen.pojo.Hello">
@@ -18,7 +20,9 @@
     </bean>
 
     <!--使用构造器传参-->
-    <bean id="UserServiceImpl2" class="com.yangsen.service.UserServiceImpl">
+    <bean id="UserServiceImpl2" class="com.yangsen.service.UserServiceImpl" name="name1 name2,name3">
         <constructor-arg ref="UserDaoImpl"/>
     </bean>
+
+    <alias name="UserServiceImpl2" alias="justIsName"/>
 </beans>

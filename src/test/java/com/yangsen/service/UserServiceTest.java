@@ -27,7 +27,7 @@ public class UserServiceTest {
     public void testContainer(){
         //获取容器对象
         ApplicationContext context=
-                new ClassPathXmlApplicationContext("ApplicationContext.xml");
+                new ClassPathXmlApplicationContext("applicationContext.xml");
         //从容器中获取UserService类的对象
         UserService userService = (UserService) context.getBean("UserServiceImpl");
         userService.getUser();
@@ -40,6 +40,9 @@ public class UserServiceTest {
         userService.getUser();
 
         userService = (UserService) context.getBean("UserServiceImpl2");
+        userService.getUser();
+
+        userService = (UserService) context.getBean("justIsName");
         userService.getUser();
     }
 }

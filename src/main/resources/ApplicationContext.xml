@@ -9,4 +9,11 @@
         <!--给属性设置默认值 Hello Spring~-->
         <property name="message" value="Hello Spring~"/>
     </bean>
+    <bean id="UserDaoImpl" class="com.yangsen.dao.UserDaoImpl"/>
+    <bean id="UserDaoImplOfEs" class="com.yangsen.dao.UserDaoImplOfEs"/>
+    <bean id="UserDaoImplOfMysql" class="com.yangsen.dao.UserDaoImplOfMysql"/>
+    <bean id="UserServiceImpl" class="com.yangsen.service.UserServiceImpl">
+        <!--name是属性名，ref表示引用xml注册的类的ID，比如上面的UserDaoImpl        -->
+        <property name="userDao" ref="UserDaoImpl"/>
+    </bean>
 </beans>

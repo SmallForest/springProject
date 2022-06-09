@@ -1,9 +1,12 @@
 package com.yangsen.service;
 
+import com.yangsen.dao.UserDao;
 import com.yangsen.dao.UserDaoImpl;
 import com.yangsen.dao.UserDaoImplOfEs;
 import com.yangsen.dao.UserDaoImplOfMysql;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class UserServiceTest {
     @Test
@@ -18,6 +21,22 @@ public class UserServiceTest {
 
         //利用setter注入实现类对象
         userService.setUserDao(new UserDaoImplOfMysql());
+        userService.getUser();
+    }
+    @Test
+    public void testContainer(){
+        //获取容器对象
+        ApplicationContext context=
+                new ClassPathXmlApplicationContext("ApplicationContext.xml");
+        //从容器中获取UserService类的对象
+        UserService userService = (UserService) context.getBean("UserServiceImpl");
+        userService.getUser();
+
+        //切换查询方式
+        userService.setUserDao((UserDao) context.getBean("UserDaoImplOfEs"));
+        userService.getUser();
+
+        userService.setUserDao((UserDao) context.getBean("UserDaoImplOfMysql"));
         userService.getUser();
     }
 }

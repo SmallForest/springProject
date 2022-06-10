@@ -64,7 +64,7 @@
     </bean>
 
     <!--创建user的Bean-->
-    <bean id="user" class="com.yangsen.pojo.User" p:name="xiaohua" p:age="12"/>
-    <bean id="user2" class="com.yangsen.pojo.User" c:name="小红" c:age="19"/>
+    <bean id="user" class="com.yangsen.pojo.User" p:name="xiaohua" p:age="12" scope="singleton"/>
+    <bean id="user2" class="com.yangsen.pojo.User" c:name="小红" c:age="19" scope="prototype"/>
 
 </beans>

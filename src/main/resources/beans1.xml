@@ -67,4 +67,21 @@
     <bean id="user" class="com.yangsen.pojo.User" p:name="xiaohua" p:age="12" scope="singleton"/>
     <bean id="user2" class="com.yangsen.pojo.User" c:name="小红" c:age="19" scope="prototype"/>
 
+    <!--    小猫小狗类Bean的创建-->
+    <bean id="cat" class="com.yangsen.pojo.Cat"/>
+    <bean id="dog" class="com.yangsen.pojo.Dog"/>
+    <!-- people的手动装配-->
+    <bean id="people" class="com.yangsen.pojo.People">
+        <property name="name" value="12"/>
+        <property name="cat" ref="cat"/>
+        <property name="dog" ref="dog"/>
+    </bean>
+    <!-- people的自动装配-byName-->
+    <bean id="people2" class="com.yangsen.pojo.People" autowire="byName">
+        <property name="name" value="33"/>
+    </bean>
+    <!-- people的手动装配-byType-->
+    <bean id="people3" class="com.yangsen.pojo.People" autowire="byType">
+        <property name="name" value="19"/>
+    </bean>
 </beans>

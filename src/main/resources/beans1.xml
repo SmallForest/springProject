@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--创建学生类的bean id首字母要小写，不然编辑器提示-->
@@ -64,5 +65,6 @@
 
     <!--创建user的Bean-->
     <bean id="user" class="com.yangsen.pojo.User" p:name="xiaohua" p:age="12"/>
+    <bean id="user2" class="com.yangsen.pojo.User" c:name="小红" c:age="19"/>
 
 </beans>

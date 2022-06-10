@@ -4,6 +4,15 @@ public class User {
     private String name;
     private int age;
 
+    public User() {
+    }
+
+    public User(String name, int age) {
+        System.out.println("构造器调用 name:"+name+" age:"+age);
+        this.name = name;
+        this.age = age;
+    }
+
     public String getName() {
         return name;
     }

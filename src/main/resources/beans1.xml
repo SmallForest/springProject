@@ -3,8 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--开启注解支持-->
+    <context:annotation-config/>
+
     <!--创建学生类的bean id首字母要小写，不然编辑器提示-->
     <bean id="student" class="com.yangsen.pojo.Student">
         <!--最简单的注入 普通值注入-->
@@ -69,12 +76,12 @@
 
     <!--    小猫小狗类Bean的创建-->
     <bean id="cat" class="com.yangsen.pojo.Cat"/>
-    <bean id="dog" class="com.yangsen.pojo.Dog"/>
+    <bean id="dog2" class="com.yangsen.pojo.Dog"/>
     <!-- people的手动装配-->
     <bean id="people" class="com.yangsen.pojo.People">
         <property name="name" value="12"/>
         <property name="cat" ref="cat"/>
-        <property name="dog" ref="dog"/>
+        <property name="dog" ref="dog2"/>
     </bean>
     <!-- people的自动装配-byName-->
     <bean id="people2" class="com.yangsen.pojo.People" autowire="byName">
@@ -84,4 +91,6 @@
     <bean id="people3" class="com.yangsen.pojo.People" autowire="byType">
         <property name="name" value="19"/>
     </bean>
+
+    <bean id="people4" class="com.yangsen.pojo.People"/>
 </beans>

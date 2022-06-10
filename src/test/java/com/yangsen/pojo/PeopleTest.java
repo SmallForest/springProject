@@ -23,4 +23,15 @@ public class PeopleTest {
         p3.getDog().bark();
         System.out.println("-----------");
     }
+
+    @Test
+    public void autowireAnnotation() {
+        //实例化一个容器
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        People p4 = context.getBean("people4", People.class);
+        p4.getCat().mew();
+        p4.getDog().bark();
+    }
 }

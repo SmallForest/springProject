@@ -11,5 +11,20 @@ public class Client {
         proxy.add();
         proxy.del();
 
+        //使用动态代理
+        System.out.println("======使用动态代理=====");
+        //声明动态代理处理器
+        ProxyInvocationHandler proxyInvocationHandler = new ProxyInvocationHandler();
+        //赋值：要被代理的实际实例
+        proxyInvocationHandler.setTarget(userService);
+        //获取代理类
+        UserService dynamicProxy = (UserService) proxyInvocationHandler.getProxy();
+        //执行接口中的方法，本例中的是：add del modify list
+        dynamicProxy.add();
+        dynamicProxy.del();
+        dynamicProxy.modify();
+        dynamicProxy.list();
+        //如何织入log? 直接修改代理处理器？
+        //思考：直接修改处理器类感觉还是不太好
     }
 }

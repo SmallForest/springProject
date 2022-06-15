@@ -6,6 +6,7 @@
     <!--import-->
     <import resource="beans1.xml"/>
     <import resource="beans2.xml"/>
+    <import resource="beans3.xml"/>
 
     <!--一个类的实例化tag spring依靠这个tag实例化对象-->
     <bean id="hello" class="com.yangsen.pojo.Hello">

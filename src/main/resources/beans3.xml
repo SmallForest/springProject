@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 声明：注册Bean，我使用注解是实现了UserServiceImpl AfterLog Log三个Bean的注册，就不在xml中写了-->
+
+    <!--配置AOP 之前要导入aop约束 以下非常重要-->
+    <aop:config>
+        <!--切入点 要实现/增强 AOP功能的类，被代理的类-->
+        <aop:pointcut id="pointcut" expression="execution(* com.yangsen.aop1.UserServiceImpl.*(..))"/>
+        <!--执行环绕增强-->
+        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+    </aop:config>
+</beans>

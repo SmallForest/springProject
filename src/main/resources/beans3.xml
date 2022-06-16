@@ -28,4 +28,8 @@
             <aop:after method="after" pointcut-ref="pointcut2"/>
         </aop:aspect>
     </aop:config>
+
+    <!--方式三 注解方式实现AOP 需要开启autoproxy proxy-target-class="false"表示采用反射实现动态代理，
+            proxy-target-class="true"表示使用cglib实现动态代理-->
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
 </beans>

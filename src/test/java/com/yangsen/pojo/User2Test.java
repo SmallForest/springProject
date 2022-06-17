@@ -35,4 +35,16 @@ public class User2Test {
             System.out.println(user2);
         }
     }
+
+    @Test
+    public void Users3() {
+        //实例化一个容器
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+        User2Mapper mapper = context.getBean("user3Mapper", User2Mapper.class);
+        List<User2> userList = mapper.getUserList();
+        for (User2 user2 : userList) {
+            System.out.println(user2);
+        }
+    }
 }

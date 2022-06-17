@@ -25,4 +25,14 @@ public class User3MapperImpl extends SqlSessionDaoSupport implements User2Mapper
         //getMapper参数还应该是接口类
         return getSqlSession().getMapper(User2Mapper.class).getUserList();
     }
+
+    @Override
+    public int addUser(User2 u) {
+        return getSqlSession().getMapper(User2Mapper.class).addUser(u);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        getSqlSession().getMapper(User2Mapper.class).deleteUser(id);
+    }
 }

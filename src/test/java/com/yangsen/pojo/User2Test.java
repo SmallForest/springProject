@@ -47,4 +47,20 @@ public class User2Test {
             System.out.println(user2);
         }
     }
+
+    @Test
+    public void User4() {
+        //实例化一个容器
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+        User2Mapper mapper = context.getBean("user3Mapper", User2Mapper.class);
+
+        mapper.addUser(new User2(16,"东方","6"));
+        mapper.deleteUser(16);
+
+        List<User2> userList = mapper.getUserList();
+        for (User2 user2 : userList) {
+            System.out.println(user2);
+        }
+    }
 }

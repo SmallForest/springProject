@@ -24,4 +24,15 @@ public class User2MapperImpl implements User2Mapper{
         User2Mapper mapper = sqlSession.getMapper(User2Mapper.class);
         return mapper.getUserList();
     }
+
+    @Override
+    public int addUser(User2 u) {
+        return 0;
+    }
+
+    @Override
+    public void deleteUser(int id) {
+
+    }
+
 }

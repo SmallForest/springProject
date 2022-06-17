@@ -22,7 +22,7 @@
         </environment>
     </environments>
     <!--    注册mapper，非常重要-->
-    <mappers>
-        <package name="com.yangsen.mapper"/>
-    </mappers>
+    <!--    <mappers>-->
+    <!--        <package name="com.yangsen.mapper"/>-->
+    <!--    </mappers>-->
 </configuration>

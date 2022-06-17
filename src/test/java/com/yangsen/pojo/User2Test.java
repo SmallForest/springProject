@@ -4,6 +4,8 @@ import com.yangsen.mapper.User2Mapper;
 import com.yangsen.utils.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
@@ -19,6 +21,18 @@ public class User2Test {
             for (User2 user2 : userList) {
                 System.out.println(user2);
             }
+        }
+    }
+
+    @Test
+    public void Users2() {
+        //实例化一个容器
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+        User2Mapper mapper = context.getBean("user2Mapper", User2Mapper.class);
+        List<User2> userList = mapper.getUserList();
+        for (User2 user2 : userList) {
+            System.out.println(user2);
         }
     }
 }
